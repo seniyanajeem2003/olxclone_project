@@ -2,7 +2,6 @@
 include 'db.php';
 session_start();
 
-// Security: Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -12,7 +11,6 @@ $id = $_GET['id'];
 $res = mysqli_query($conn, "SELECT * FROM ads WHERE id = '$id'");
 $ad = mysqli_fetch_assoc($res);
 
-// Security: If the ad doesn't exist or doesn't belong to the user, redirect
 if (!$ad || $ad['user_id'] != $_SESSION['user_id']) {
     header("Location: manage_ads.php");
     exit();
@@ -38,9 +36,9 @@ if (isset($_POST['update'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Ad | OLX Clone</title>
-    <!-- Bootstrap CSS -->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         body { background-color: #f4f7f9; font-family: 'Segoe UI', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; }

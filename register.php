@@ -5,7 +5,6 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // In a real project, you should use password_hash() for security
     $sql = "INSERT INTO users (email, password) VALUES ('$email', '$password')";
 
     $message = "";
@@ -23,7 +22,6 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account | OLX Clone</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -61,7 +59,6 @@ if (isset($_POST['submit'])) {
         <p class="text-muted">The best place to buy and sell</p>
     </div>
 
-    <!-- Display success or error message -->
     <?php if(!empty($message)) echo $message; ?>
 
     <form method="POST">

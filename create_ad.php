@@ -2,7 +2,6 @@
 include 'db.php';
 session_start();
 
-// Security: If not logged in, send them back to login
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -15,7 +14,6 @@ if (isset($_POST['post_ad'])) {
     $desc = $_POST['description'];
     $user_id = $_SESSION['user_id'];
 
-    // Image Upload Logic
     $image_name = time() . "_" . $_FILES['ad_image']['name']; 
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($image_name);
@@ -41,7 +39,6 @@ if (isset($_POST['post_ad'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post New Ad | OLX Clone</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
@@ -53,7 +50,6 @@ if (isset($_POST['post_ad'])) {
 </head>
 <body>
 
-    <!-- Simple Header -->
     <nav class="navbar navbar-dark mb-5 shadow-sm">
         <div class="container">
             <a class="navbar-brand fw-bold" href="dashboard.php">OLX CLONE</a>

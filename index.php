@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-session_start(); // Start session to check if a user is logged in for the "Back" button
+session_start(); 
 
 $sql = "SELECT * FROM ads ORDER BY id DESC";
 $result = mysqli_query($conn, $sql);

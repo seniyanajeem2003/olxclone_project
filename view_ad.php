@@ -5,7 +5,6 @@ $id = $_GET['id'];
 $result = mysqli_query($conn, "SELECT * FROM ads WHERE id = '$id'");
 $ad = mysqli_fetch_assoc($result);
 
-// Redirect if no ad is found
 if (!$ad) {
     header("Location: index.php");
     exit();
@@ -45,7 +44,6 @@ if (!$ad) {
 
     <div class="container py-4">
         <div class="row g-4">
-            <!-- Left Side: Image Gallery -->
             <div class="col-lg-8">
                 <div class="product-container shadow-sm p-2 mb-4">
                     <img src="uploads/<?php echo $ad['image_path']; ?>" class="product-image rounded" alt="Product Image">
@@ -59,7 +57,6 @@ if (!$ad) {
                 </div>
             </div>
 
-            <!-- Right Side: Product Info & Call to Action -->
             <div class="col-lg-4">
                 <div class="sidebar-box shadow-sm bg-white mb-4">
                     <h2 class="fw-bold mb-3"><?php echo htmlspecialchars($ad['title']); ?></h2>
